@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.remindme
+Bundle-SymbolicName: com.remindme;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.remindme.Activator
+Bundle-Vendor: RemindMe
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7,
+ JavaSE-1.8,
+ JavaSE-1.6
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="RemindMe Category"
+            id="remindMe.commands.category">
+      </category>
+      <command
+            name="RemindMe StartStop"
+            categoryId="remindMe.commands.category"
+            id="remindMe.commands.remindMeStartStopCommand">
+      </command>
+            <command
+            name="RemindMe Settings"
+            categoryId="remindMe.commands.category" 
+            id="remindMe.commands.remindMeSettingsCommand">
+      </command>
+      <command
+            categoryId="remindMe.commands.category"
+            defaultHandler="com.remindme.handlers.RemindMeSettingsHandler"
+            id="remindMeSettings"
+            name="remindMeSettings">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="remindMe.commands.remindMeStartStopCommand"
+            class="com.remindme.handlers.RemindMeHandler">
+      </handler>
+      <handler
+            commandId="remindMe.commands.remindMeSettingsCommand"
+            class="com.remindme.handlers.RemindMeSettingsHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="remindMe.commands.remindMeStartStopCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar id="remindMe.toolbars.remindMeToolbar">
+           
+            <command
+                  commandId="remindMeSettings"
+                  tooltip="RemindMe"
+                  label="RemindMe Settings"
+                  icon="icons/remindmeicon.png"
+                  style="pulldown">
+            </command>
+         
+         </toolbar>
+      </menuContribution>
+    
+     <menuContribution
+            locationURI="menu:remindMeSettings">  
+           <command
+               commandId="remindMe.commands.remindMeStartStopCommand" id="startStop"
+               label="Start / Stop"
+               style="toggle">
+         </command>
+
+         <separator
+               name="Intervals" visible="true" >
+         </separator>
+         <menu label="RemindMe In" commandId="remindMe.commands.remindMeSettingsCommand">
+           
+         	<command 
+               commandId="remindMe.commands.remindMeSettingsCommand" id="15" 
+               label="15 minutes"
+               style="radio">
+         </command>
+         <command
+               commandId="remindMe.commands.remindMeSettingsCommand" id="30"
+               label="30 minutes"
+               style="radio">
+         </command>
+         <command
+               commandId="remindMe.commands.remindMeSettingsCommand" id="45"
+               label="45 minutes"
+               style="radio">
+         </command>
+         <command
+               commandId="remindMe.commands.remindMeSettingsCommand" id="60"
+               label="60 minutes"
+               style="radio">
+         </command>
+         </menu>
+		
+            
+      </menuContribution>
+   </extension>
+
+</plugin>
