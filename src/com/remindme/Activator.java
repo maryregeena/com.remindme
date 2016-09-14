@@ -97,6 +97,11 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
+		if(timer!=null){
+			timer.cancel();
+			timer=null;
+			System.out.println("eclipse closed");	
+		}
 	}
 
 	/**
